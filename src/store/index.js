@@ -100,10 +100,11 @@ export const store = new Vuex.Store({
         if (obj) {
           miPerfil.push(obj)
           commit('cargarPerfil', obj)
+          commit('setLoading', false)
         } else {
-          commit('cargarPerfil', this.state.miPerfil)
+          commit('cargarPerfil', {})
+          commit('setLoading', false)
         }
-        commit('setLoading', false)
       })
       .catch((error) => {
         console.log(error)
